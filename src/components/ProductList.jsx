@@ -8,6 +8,7 @@ const ProductList = () => {
   const [data, setData] = useState([]);
   const [currency, setCurrency] = useState("MYR");
 
+  //Function to load the JSON data.
   const getData = () => {
     fetch("../JSON/productlist.json", {
       headers: {
@@ -26,6 +27,7 @@ const ProductList = () => {
     getData();
   }, []);
 
+  //Function to handle the country change and accordingly changes the currency
   function handleChange(type) {
     if (type.value === "Malaysia") setCurrency("MYR");
     if (type.value === "Singapore") {
@@ -44,7 +46,7 @@ const ProductList = () => {
               <div key={item.id}>
                 <div className="product-card">
                   <img className="product-img" src={item.image} alt="product" />
-                  <div >{item.name}</div>
+                  <div>{item.name}</div>
                   <div>
                     {currency}{" "}
                     {currency === "MYR" ? item.myrprice : item.sgdprice}

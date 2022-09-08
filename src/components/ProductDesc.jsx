@@ -7,12 +7,21 @@ import Footer from "./common/Footer";
 import { useParams } from "react-router-dom";
 
 const ProductDesc = () => {
-  const params = useParams();
-
   const [data, setData] = useState({});
   const [currency, setCurrency] = useState("MYR");
   const [btnClicked, setBtnClicked] = useState(false);
 
+  const params = useParams();
+
+  //Setting the store_id, auth token and product price, as per currency
+  let storeId = currency === "MYR" ? "MY-S-3B7VWDJVBTDR" : "SG-S-NPQPBAWN2N6J";
+  let productPrice = currency === "MYR" ? data.myrprice : data.sgdprice;
+  const token =
+    currency === "MYR"
+      ? "ClNI1Q9LujtJUlOqF8taVQyz1OHiewgkxa8cVZLt"
+      : "cEYwXkM6upcfgbC7ZP8vA9ZOMbnAkk3T3pPjMYM5";
+
+  //Function to load the JSON data.
   const getData = () => {
     fetch("../JSON/productlist.json", {
       headers: {
@@ -35,25 +44,19 @@ const ProductDesc = () => {
   useEffect(() => {
     getData();
   }, []);
-
+  //Function to handle the button click and update the state as true
   function handleClick() {
     setBtnClicked(true);
   }
 
-  let storeId = currency === "MYR" ? "MY-S-3B7VWDJVBTDR" : "SG-S-NPQPBAWN2N6J";
-  let productPrice = currency === "MYR" ? data.myrprice : data.sgdprice;
-
+  //API payload data
   const payload = {
     amount: productPrice,
     redirect_url: "https://demo.ablr.com/checkout/success",
     store_id: storeId,
   };
 
-  const token =
-    currency === "MYR"
-      ? "ClNI1Q9LujtJUlOqF8taVQyz1OHiewgkxa8cVZLt"
-      : "cEYwXkM6upcfgbC7ZP8vA9ZOMbnAkk3T3pPjMYM5";
-
+  //API call
   useEffect(() => {
     btnClicked === true &&
       axios
@@ -77,6 +80,7 @@ const ProductDesc = () => {
         });
   }, [btnClicked]);
 
+  //Function to handle the country change and accordingly changes the currency
   function handleChange(type) {
     if (type.value === "Malaysia") setCurrency("MYR");
     if (type.value === "Singapore") {
