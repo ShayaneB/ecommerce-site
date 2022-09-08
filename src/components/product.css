@@ -1,0 +1,148 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e9e6e6;
+  height: 35px;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding: 20px 50px;
+  width: 90vw;
+}
+
+.logo-img {
+  width: 25%;
+}
+
+.product-list-card {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  margin-bottom: 200px;
+  max-width: 1000px;
+}
+
+.product-img {
+  max-width: 250px;
+}
+
+.product-card {
+  background-color: #f7f8f9;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 280px;
+  margin: 20px;
+  max-width: 250px;
+  min-width: 200px;
+  padding: 30px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #e9e6e6;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 20px 0;
+  position: fixed;
+  right: 0;
+}
+
+.rights {
+  margin-left: 50px;
+}
+
+.select-country {
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.product-desc-body {
+  display: flex;
+  margin-bottom: 100px;
+  max-width: 1000px;
+  padding: 0 100px;
+}
+
+.product-desc {
+  min-width: 50%;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.product-image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-width: 50%;
+}
+
+.img-desc {
+  max-width: 326px;
+}
+
+.product-desc-text {
+  line-height: 1.5em;
+}
+
+.product-curr {
+  color: #747a76;
+  margin: 0.8rem 0;
+}
+
+.product-title {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3em;
+  font-weight: 700;
+  justify-content: flex-start;
+}
+
+.product-review {
+  margin-left: 0;
+  padding-top: 0;
+}
+
+button {
+  margin-top: 2rem !important;
+  background-color: #000;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1em;
+  padding: 15px 50px;
+}
+
+@media only screen and (max-width: 800px) {
+  .product-image {
+    max-width: 300px;
+    min-width: 200px;
+  }
+
+  .product-desc {
+    padding-right: 0;
+  }
+
+  .product-desc-body {
+    align-items: center;
+    flex-direction: column-reverse;
+    margin-bottom: 200px;
+    padding: 0 50px;
+  }
+
+  .footer {
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 5px;
+  }
+}
